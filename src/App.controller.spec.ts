@@ -16,7 +16,7 @@ describe("AppController", () => {
             expect(appController.index()).toBe({
                 message: "Health check passed.",
                 statusCode: 200,
-          });
+            });
         });
     });
 });

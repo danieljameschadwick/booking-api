@@ -4,24 +4,24 @@ import { AppModule } from '../src/App.module';
 import { INestApplication } from '@nestjs/common';
 
 describe('AppController (e2e)', () => {
-  let app: INestApplication;
+    let app: INestApplication;
 
-  beforeAll(async () => {
-    const moduleFixture = await Test.createTestingModule({
-      imports: [AppModule],
-    }).compile();
+    beforeAll(async () => {
+        const moduleFixture = await Test.createTestingModule({
+            imports: [AppModule],
+        }).compile();
 
-    app = moduleFixture.createNestApplication();
-    await app.init();
-  });
-
-  it('/ (GET)', () => {
-    return request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect({
-        message: "Health check passed.",
-        statusCode: 200,
+        app = moduleFixture.createNestApplication();
+        await app.init();
     });
-  });
+
+    it('/ (GET)', () => {
+        return request(app.getHttpServer())
+            .get('/')
+            .expect(200)
+            .expect({
+                message: "Health check passed.",
+                statusCode: 200,
+            });
+    });
 });
